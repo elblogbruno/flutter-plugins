@@ -14,7 +14,8 @@ class NotificationListener : NotificationListenerService() {
         val packageName = sbn.packageName
         // Retrieve extra object from notification to extract payload.
         val extras = sbn.notification.extras
-        val app_category = sbn.notification.category
+        val notification = sbn.getNotification()
+        val app_category = notification.category
         val packageMessage = extras?.getCharSequence(Notification.EXTRA_TEXT).toString()
         // Pass data from one activity to another.
         val intent = Intent(NOTIFICATION_INTENT)
