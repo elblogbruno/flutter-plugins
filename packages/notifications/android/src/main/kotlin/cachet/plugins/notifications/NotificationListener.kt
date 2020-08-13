@@ -15,13 +15,15 @@ class NotificationListener : NotificationListenerService() {
         // Retrieve extra object from notification to extract payload.
         val extras = sbn.notification.extras
         val notification = sbn.getNotification()
-        val app_category = notification.category
+        val app_category = notification.category.toString()
+        val notification_title = extras?.getString(Notification.EXTRA_TITLE).toString()
         val packageMessage = extras?.getCharSequence(Notification.EXTRA_TEXT).toString()
         // Pass data from one activity to another.
         val intent = Intent(NOTIFICATION_INTENT)
         intent.putExtra(NOTIFICATION_PACKAGE_NAME, packageName)
         intent.putExtra(NOTIFICATION_PACKAGE_MESSAGE, packageMessage)
         intent.putExtra(NOTIFICATION_CATEGORY, app_category)
+        intent.putExtra(NOTIFICATION_TITLE,notification_title)
         sendBroadcast(intent)
     }
 
@@ -30,5 +32,6 @@ class NotificationListener : NotificationListenerService() {
         const val NOTIFICATION_PACKAGE_NAME = "package_name"
         const val NOTIFICATION_PACKAGE_MESSAGE = "package_message"
         const val NOTIFICATION_CATEGORY = "app_category"
+        const val NOTIFICATION_TITLE = "notification_title"
     }
 }

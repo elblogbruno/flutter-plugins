@@ -20,21 +20,23 @@ class NotificationEvent {
   String packageMessage;
   String packageName;
   String app_category;
+  String packageTitle;
   DateTime timeStamp;
 
-  NotificationEvent({this.packageName, this.packageMessage, this.timeStamp,this.app_category});
+  NotificationEvent({this.packageName, this.packageMessage, this.timeStamp,this.app_category,this.packageTitle});
 
   factory NotificationEvent.fromMap(Map<dynamic, dynamic> map) {
       DateTime time = DateTime.now();
       String name = map['packageName'];
       String message = map['packageMessage'];
       String category = map['app_category'];
-      return NotificationEvent(packageName: name, packageMessage: message, timeStamp: time,app_category: category);
+      String title  = map['packageTitle'];
+      return NotificationEvent(packageName: name, packageMessage: message, timeStamp: time,app_category: category,packageTitle: title);
   }
 
   @override
   String toString() {
-    return "Notification Event \n Package Name: $packageName \n - Timestamp: $timeStamp \n - Package Message: $packageMessage \n - Package Category: $app_category";
+    return "Notification Event \n Package Name: $packageName \n - Timestamp: $timeStamp \n - Package Message: $packageMessage \n - Package Category: $app_category \n - Package Title: $packageTitle" ;
   }
 }
 
