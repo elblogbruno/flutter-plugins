@@ -28,13 +28,13 @@ class NotificationEvent {
       DateTime time = DateTime.now();
       String name = map['packageName'];
       String message = map['packageMessage'];
-      String app_category = map['app_category'];
-      return NotificationEvent(packageName: name, packageMessage: message, timeStamp: time,app_category: app_category);
+      String category = map['app_category'];
+      return NotificationEvent(packageName: name, packageMessage: message, timeStamp: time,app_category: category);
   }
 
   @override
   String toString() {
-    return "Notification Event \n Package Name: $packageName \n - Timestamp: $timeStamp \n - Package Message: $packageMessage";
+    return "Notification Event \n Package Name: $packageName \n - Timestamp: $timeStamp \n - Package Message: $packageMessage \n - Package Message: $app_category";
   }
 }
 
