@@ -37,7 +37,7 @@ class NotificationEvent {
 
   @override
   String toString() {
-    return "Notification Event \n Package Name: $packageName \n - Timestamp: $timeStamp \n - Package Message: $packageMessage \n - Package Category: $app_category \n - Package Title: $packageTitle" ;
+    return "Notification Event \n Package Name: $packageName \n - Timestamp: $timeStamp \n - Package Message: $packageMessage \n - Package Category: $appCategory \n - Package Title: $packageTitle" ;
   }
 }
 
