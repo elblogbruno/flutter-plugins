@@ -68,13 +68,13 @@ class NotificationsPlugin private constructor(private val context: Context) : St
         override fun onReceive(context: Context, intent: Intent) {
             val packageName = intent.getStringExtra(NotificationListener.NOTIFICATION_PACKAGE_NAME)
             val packageMessage = intent.getStringExtra(NotificationListener.NOTIFICATION_PACKAGE_MESSAGE)
-            val app_category = intent.getStringExtra(NotificationListener.NOTIFICATION_CATEGORY)
+            val appCategory = intent.getStringExtra(NotificationListener.NOTIFICATION_CATEGORY)
             val packageTitle = intent.getStringExtra(NotificationListener.NOTIFICATION_TITLE)
             
             val map = HashMap<String, Any>()
             map["packageName"] = packageName
             map["packageMessage"] = packageMessage
-            map["app_category"] = app_category
+            map["appCategory"] = appCategory
             map["packageTitle"] = packageTitle
             eventSink?.success(map)
         }

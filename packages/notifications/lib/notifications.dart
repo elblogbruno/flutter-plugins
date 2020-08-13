@@ -19,19 +19,20 @@ class NotificationException implements Exception {
 class NotificationEvent {
   String packageMessage;
   String packageName;
-  String app_category;
+  String appCategory;
   String packageTitle;
   DateTime timeStamp;
 
-  NotificationEvent({this.packageName, this.packageMessage, this.timeStamp,this.app_category,this.packageTitle});
+  NotificationEvent({this.packageName, this.packageMessage, this.timeStamp,this.appCategory,this.packageTitle});
 
   factory NotificationEvent.fromMap(Map<dynamic, dynamic> map) {
+      print(map);
       DateTime time = DateTime.now();
       String name = map['packageName'];
       String message = map['packageMessage'];
-      String category = map['app_category'];
+      String category = map['appCategory'];
       String title  = map['packageTitle'];
-      return NotificationEvent(packageName: name, packageMessage: message, timeStamp: time,app_category: category,packageTitle: title);
+      return NotificationEvent(packageName: name, packageMessage: message, timeStamp: time,appCategory: category,packageTitle: title);
   }
 
   @override
